@@ -1,0 +1,12 @@
+.sidebar{
+    height: 100%;
+    width: 60px;
+} */
+
+a i {
+    padding: auto;
+    text-decoration: none;
+    font-size: small;
+    /* color: aliceblue; */
+    display: block;
+}
