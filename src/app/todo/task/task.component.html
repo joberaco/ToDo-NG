@@ -1,45 +1,35 @@
- <!-- Task item: Completed -->
- <div class="field has-addons">
+ <!-- Task item -->
+ <div class="field has-addons" *ngFor="let task of tasks">
     <div class="control">
-        <button class="button is-success has-icons-left">
+        <div class="tag is-large " [ngClass]="{
+                'is-success': task.completed,
+                'is-warning': !task.completed}">
             <span class="icon">
-                <i class="fa-solid fa-square-check"></i>
+                <i class="fa-solid" [ngClass]="{
+                    'fa-square-check': task.completed,
+                    'fa-ellipsis': !task.completed}">
+                </i>
+            </span>
+        </div>
+    </div>
+
+    <div class="control is-expanded">
+        <input type="text" class="input has-text-centered" value="{{task.title}}" readonly>
+    </div>
+    
+    <div class="control" *ngIf="!task.completed">
+        <button class="button is-primary" type="submit" (click)="markCompleted(task);">
+            <span class="icon">
+                <i class="fa-solid fa-check"></i>
             </span>
         </button>
     </div>
-    <div class="control is-expanded">
-        <input type="text" class="input has-text-centered completed" value="Quiero alcohol aaaaaaaaa" readonly>
+
+    <div class="control">
+        <button class="button is-danger" type="submit" (click)="deleteTask(task);">
+            <span class="icon">
+                <i class="fa-solid fa-x"></i>
+            </span>
+        </button>
     </div>
 </div>   
-<!-- End Task item: Completed -->
-
-<!-- Task item: About to expire -->
-<div class="field has-addons">
-    <div class="control">
-        <button class="button is-warning has-icons-left">
-            <span class="icon">
-                <i class="fa-solid fa-clock"></i>
-            </span>
-        </button>
-    </div>
-    <div class="control is-expanded">
-        <input type="text" class="input has-text-centered" value="Quiero alcohol aaaaaaaaa" readonly>
-    </div>
-</div>   
-<!-- Task item: About to expire -->
-
-<!-- Task item: Pending -->
-<div class="field has-addons">
-    <div class="control">
-        <button class="button is-light has-icons-left">
-            <span class="icon">
-                <i class="fa-solid fa-ellipsis"></i> 
-            </span>
-        </button>
-    </div>
-    <div class="control is-expanded">
-        <input type="text" class="input has-text-centered" value="Quiero alcohol aaaaaaaaa" readonly>
-    </div>
-</div> 
-
-<!-- Task item: Pending -->
