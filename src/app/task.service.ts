@@ -11,7 +11,7 @@ import { Task } from './task';
 })
 export class TaskService {
 
-  private tasksUrl = 'http://localhost:3000/tasks';
+  private tasksUrl = 'https://stickytsk-api.herokuapp.com/tasks';
   private httpOptions = {
     headers: new HttpHeaders({'Content-Type': 'application/json'})
   };
